@@ -26,7 +26,8 @@ Open the website started by dev server (`http://localhost:5080/`), and take a lo
 import default from -> Object
     HighchartsReact: (...)
     default: {$$typeof: Symbol(react.memo), type: {…}, compare: null}
-    __esModule: trueget HighchartsReact: ƒ ()
+    __esModule: true
+    get HighchartsReact: ƒ ()
     [[Prototype]]: Object
 
 import * from -> Module
@@ -46,3 +47,5 @@ import { HighchartsReact } from -> Object
     set displayName: ƒ (name)
     [[Prototype]]: Object
 ```
+
+Note that the default import didn't got unwrapped in the first case, and it behaves almost the same as star-import.
