@@ -1,12 +1,14 @@
 # webpack-esm-import
 
-This repo compares the behavior of following imports in ESM js file
+This repo compares the behavior of following imports in a js file
 
 ```js
 import HighChartsReact_default from 'highcharts-react-official';
 import * as HighChartsReact_star from 'highcharts-react-official';
 import { HighchartsReact } from 'highcharts-react-official';
 ```
+
+when the `package.json` governing this js file has (or does not have) ``"type": "module"`` property.
 
 `highcharts-react-official` is a module pre-bundled by webpack using UMD export.
 
@@ -22,7 +24,7 @@ Ensure you have installed yarn (`npm i -g yarn`), then in the repo root
 
 Open the website started by dev server (`http://localhost:5080/`), and see the output on the HTML page
 
-If there is `"type": "module"` in `package.json`
+If there is `"type": "module"` in the `package.json` file of this repo root
 ```js
 import default from 'highcharts-react-official'
   __esModule=true; $$typeof=undefined; default=[object Object]
@@ -35,7 +37,7 @@ import { HighchartsReact } from 'highcharts-react-official'
   __esModule=undefined; $$typeof=react.memo; default=undefined
 ```
 
-If you remove this line (`"type": "module"`) from `package.json`
+If you remove this line (`"type": "module"`) from `package.json` file of this repo root
 ```js
 import default from 'highcharts-react-official'
   __esModule=undefined; $$typeof=react.memo; default=undefined
