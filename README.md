@@ -22,7 +22,7 @@ Ensure you have installed yarn (`npm i -g yarn`), then in the repo root
 
 Open the website started by dev server (`http://localhost:5080/`), and see the output on the HTML page
 
-If there is `"type": "module"` in `src\my-package\package.json`
+If there is `"type": "module"` in `package.json`
 ```js
 import default from 'highcharts-react-official'
   __esModule=true; $$typeof=undefined; default=[object Object]
@@ -35,7 +35,7 @@ import { HighchartsReact } from 'highcharts-react-official'
   __esModule=undefined; $$typeof=react.memo; default=undefined
 ```
 
-If you remove this line (`"type": "module"`) from `src\my-package\package.json`
+If you remove this line (`"type": "module"`) from `package.json`
 ```js
 import default from 'highcharts-react-official'
   __esModule=undefined; $$typeof=react.memo; default=undefined
