@@ -20,32 +20,32 @@ Ensure you have installed yarn (`npm i -g yarn`), then in the repo root
 > yarn start
 ```
 
-Open the website started by dev server (`http://localhost:5080/`), and take a look at the console.
+Open the website started by dev server (`http://localhost:5080/`), and see the output on the HTML page
 
+If there is `"type": "module"` in `src\my-package\package.json`
 ```js
-import default from -> Object
-    HighchartsReact: (...)
-    default: {$$typeof: Symbol(react.memo), type: {…}, compare: null}
-    __esModule: true
-    get HighchartsReact: ƒ ()
-    [[Prototype]]: Object
+import default from 'highcharts-react-official'
+  __esModule=true; $$typeof=undefined; default=[object Object]
+                    ^ Not a React component
 
-import * from -> Module
-    HighchartsReact: (...)
-    default: (...)
-    __esModule: true
-    Symbol(Symbol.toStringTag): "Module"
-    get HighchartsReact: () => (value[key])
-    get default: () => (value)
+import * as Foo from 'highcharts-react-official'
+  __esModule=true; $$typeof=undefined; default=[object Object]
 
-import { HighchartsReact } from -> Object
-    $$typeof: Symbol(react.memo)
-    compare: null
-    type: {$$typeof: Symbol(react.forward_ref), render: ƒ}
-    displayName: (...)
-    get displayName: ƒ ()
-    set displayName: ƒ (name)
-    [[Prototype]]: Object
+import { HighchartsReact } from 'highcharts-react-official'
+  __esModule=undefined; $$typeof=react.memo; default=undefined
+```
+
+If you remove this line (`"type": "module"`) from `src\my-package\package.json`
+```js
+import default from 'highcharts-react-official'
+  __esModule=undefined; $$typeof=react.memo; default=undefined
+                         ^ It is a React component
+
+import * as Foo from 'highcharts-react-official'
+  __esModule=true; $$typeof=undefined; default=[object Object]
+
+import { HighchartsReact } from 'highcharts-react-official'
+  __esModule=undefined; $$typeof=react.memo; default=undefined
 ```
 
 Note that the default import didn't got unwrapped in the first case, and it behaves almost the same as star-import.
